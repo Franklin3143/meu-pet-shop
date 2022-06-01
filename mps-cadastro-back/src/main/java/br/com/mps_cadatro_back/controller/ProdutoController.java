@@ -5,6 +5,7 @@ import br.com.mps_cadatro_back.model.dto.ProdutoDto;
 import br.com.mps_cadatro_back.repository.ProdutoRepository;
 import br.com.mps_cadatro_back.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -40,14 +41,14 @@ public class ProdutoController {
 
     @PostMapping
     public ResponseEntity cadastrarNovoProduto(@RequestBody Produto produto ) {
-        ProdutoDto produtoDto = produtoService.insert(produto);
-        URI uri = getUri(produtoDto.getIdProduto());
-        return ResponseEntity.created(uri).build();
-    }
 
-    private URI getUri(Long id) {
-        return ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
-                .buildAndExpand(id).toUri();
+        try {
+            Produto _produto = produtoRepository
+                    .save(produto);
+            return new ResponseEntity<>(_produto, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/{id}")

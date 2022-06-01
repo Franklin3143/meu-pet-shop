@@ -13,4 +13,24 @@ class ProdutoControllerTest {
     @Test
     void cadastrarNovoProduto() {
     }
+
+    @Test
+    void testListarProdutos() {
+    }
+
+    @Test
+    void buscarProdutoPorId() {
+    }
+
+    @Test
+    void testCadastrarNovoProduto() {
+    }
+
+    @Test
+    void atualizarProduto() {
+    }
+
+    @Test
+    void deletarProduto() {
+    }
 }

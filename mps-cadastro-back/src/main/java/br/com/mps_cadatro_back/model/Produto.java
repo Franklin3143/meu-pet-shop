@@ -1,6 +1,8 @@
 package br.com.mps_cadatro_back.model;
 
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,6 +15,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idProduto;
+    @NotNull
     private Double valor;
     private Date validade;
     private Enum status;
