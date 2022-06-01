@@ -4,7 +4,6 @@ import br.com.mps_cadatro_back.model.Produto;
 import com.sun.istack.NotNull;
 import org.modelmapper.ModelMapper;
 
-import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 public class ProdutoDto {
