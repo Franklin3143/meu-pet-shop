@@ -36,6 +36,7 @@ public class ProdutoController {
         if (produto.isPresent()) {
             return ResponseEntity.ok(new ProdutoDto(produto.get()));
         }
+
         return ResponseEntity.notFound().build();
     }
 
